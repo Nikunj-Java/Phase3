@@ -1,0 +1,140 @@
+Step1 :goto>eclips IDE> files> new > 
+	maven project>archtype web app> 
+	arctifact id: firstProject>
+	change package name as group id> finish
+
+step2: goto pom.xml file and chek for errors 
+	
+	> if error is there then add maven -war plugin from
+	link: https://stackoverflow.com/questions/67168999/maven-error-cannot-access-defaults-field-of-properties
+
+Step 3: add dependencies in pom.xml file
+
+		<!--Spring Core Dependency -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.3.17</version>
+		</dependency>
+
+
+		<!--Spring Expression -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>5.3.17</version>
+		</dependency>
+
+		<!--spring -beans -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>5.3.17</version>
+		</dependency>
+
+
+		<!--spring context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>5.3.17</version>
+		</dependency>
+
+
+		<!--spring context support -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>5.3.17</version>
+		</dependency>
+
+
+		<!-- spring orm-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>5.3.17</version>
+		</dependency>
+
+
+		<!-- spring web-->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>5.3.17</version>
+		</dependency>
+
+		<!-- spring- webmvc-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>5.3.17</version>
+		</dependency>
+
+
+		<!--javservelet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		
+
+
+	<build>
+		<finalName>FirstPro</finalName>
+	<!-- add plugin-->
+		<plugins>
+
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+			</plugin>
+		</plugins>
+	</build>
+	
+
+
+
+step: 4   create a new quickstart artifact maven project
+
+	create student class
+	create main class
+	call student class in main methods
+	get the out put
+	<!--using Spring--->
+	goto> project> right click on it  new >resource folder > resource
+	
+	once it is done
+	
+	resources > right click on it prepare xml file> new > others >MXL file >create beans.xml file>
+
+
+	once it is done add folllowing beans defination
+
+
+	<!-- bean definitions here -->
+    
+    <bean id="s" class="com.simplilearn.demo.Student">
+    <property name="id" value="2"></property>
+    <property name="name" value="nikunj soni"></property>
+    </bean>
+
+
+	> now go to main class and use following code
+
+		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+		Student obj =(Student)context.getBean("s");
+		obj.display();
+		
