@@ -115,3 +115,71 @@ and write the name <app-header></app-header>
 
 
 save it and you will be able to see the out put in the browser 
+
+
+
+
+
+
+similarly , you can prepare footer  and integrate in app using the steps mentioned above
+
+
+
+
+---------------------------------------------------------------------------------------------------------------
+Data Binding:
+
+types:
+	1. source to view (.ts to .html)
+	2. view to source (.html to .ts)
+	3. source to view to source (two way binding)
+Data binding can be done in two ways
+
+	1. Interpolation binding {{}}
+	2. Property binding []
+
+
+prepare the binding component from node js by following command
+> ng g c binding
+
+
+once it is done we can bind the data
+
+to bind the data go to binding.component.ts--- and add following at the bottom
+	name:string ="Nikunj Soni";
+  	url:string ="https://www.google.com";
+
+
+
+got to binding.component.html---add the following
+
+
+
+
+<h2>Data Binding</h2>
+<h3>Let's Bind data from source to view using interpolation</h3>
+<hr>
+<p>{{name}}</p>
+
+<h3>Let's Bind data from source to view using Property binding: [] : bind the value with attribute</h3>
+<hr>
+<a [href]="url" >Connect to Google</a>
+
+
+
+again go to> binding.component.ts and scroll up and copy the name of selector which is present inside @component{
+}
+
+
+
+now go to your app.component.html
+
+and add the copied name like this
+
+<app-binding></app-binding>
+
+
+save and check the output in browser
+
+
+
