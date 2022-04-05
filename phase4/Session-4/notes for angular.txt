@@ -74,4 +74,44 @@ or
  goto > file> open folder> select the folder of your app that you have created just now
 
 to run angular project
-ng serve
+>ng serve
+
+goto app.component.html file and edit the code whichever you like to do
+
+
+<h1> My First Angular App </h1>
+
+--------------------------------------------------------------------Let's Prepare one component 
+****************************
+add another cmd from terminal and execute the following code
+
+prepare component by using following command
+
+>ng generate component header (OR ng g c header)  ///header is name 							of component
+ goto > src> app> header> header.component.html and prepare the header you want
+
+
+<h1>header Works!</h1>
+
+
+goto> src> app> header> header.component.css and add style
+
+h1{
+    background-color: antiquewhite;
+}
+
+
+
+now go to  header.component.ts and copy the selector name which is present inside @component{
+
+
+}
+
+
+
+now go to app.component.html
+
+and write the name <app-header></app-header>
+
+
+save it and you will be able to see the out put in the browser 
