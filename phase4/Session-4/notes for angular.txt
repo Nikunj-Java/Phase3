@@ -1,0 +1,77 @@
+-------------------------------------------------------------------
+Step1: Installing Node and NPM
+-------------------------------------------------------------------
+to check the version of node
+
+> open cmd> node -v
+	output: v16.14.2
+
+
+2. NPM manager -node package manager
+---provides the bundle of packages which we cam download directly 	using CMD
+---ex. angular,react,view JS,typescript,bootstrap
+---NPM installed automatically whenever you install node Js in your     system
+> npm -v  (gives npm version)
+	output: 8.5.0
+-------------------------------------------------------------------
+
+Step: 2  installing TypeScript
+
+-------------------------------------------------------------------
+
+> npm install typescript -g
+
+to check the version
+>tsc -v
+	output: Version 4.6.3
+
+
+
+----prepare one first.ts file in visual studio code and go to terminal> new terminal > open cmd and follow the below set of code
+to compile run the following code
+>tsc first.ts
+
+you will see first.js file in the folder
+
+> node first.js
+
+you will see the output in console
+
+
+preparing tsconfig.json file: it is a file to configure json file
+
+how .ts converts to .js we can configure in this file
+
+> tsc --init  (will create this file we can check the same)
+
+
+
+-------------------------------------------------------------------
+Step: 3    Install Angular on youe machine
+-------------------------------------------------------------------
+
+let's install angular
+
+> npm install -g @angular/cli  (OR   npm i -g @angular/cli)
+
+to check the version
+> ng --version
+
+
+let's create angular project
+****************************
+ng new myapp  (you can give any name)
+	it will ask you two question
+	1. DO YOU WANT TO ADD ANGULAR ROUTING? : Y
+	2. CHOOSE CSS: CSS
+
+
+once my app is created change the directory using cmd command 
+>cd myapp
+
+or
+
+ goto > file> open folder> select the folder of your app that you have created just now
+
+to run angular project
+ng serve
