@@ -1,0 +1,88 @@
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Reactive Form Demo</h2>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label>FirstName</label>
+                        <input type="text" formControlName="firstName" class="form-control"
+                        [ngClass]="{' is-invalid' : submitted && f['firstName'].errors}"/>
+
+
+                        <!--custom validation-->
+                        <div *ngIf="submitted && f['firstName'].errors">
+                            <div *ngIf="submitted && f['firstName'].errors['required']">
+                                First name is required and can't be empty
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label>LastName</label>
+                        <input type="text" formControlName="lastName" class="form-control"
+                        [ngClass]="{' is-invalid' : submitted && f['lastName'].errors}"/>
+
+
+                        <!--custom validation-->
+                        <div *ngIf="submitted && f['lastName'].errors">
+                            <div *ngIf="submitted && f['lastName'].errors['required']">
+                                Last name is required and can't be empty
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Id</label>
+                        <input type="text" formControlName="email" class="form-control"
+                        [ngClass]="{' is-invalid' : submitted && f['email'].errors}"/>
+
+
+                        <!--custom validation-->
+                        <div *ngIf="submitted && f['email'].errors">
+                            <div *ngIf="submitted && f['email'].errors['required']">
+                                Email is required and can't be empty
+                            </div>
+
+                            <div *ngIf="submitted && f['email'].errors['email']">
+                                Email is not valid
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="text" formControlName="password" class="form-control"
+                        [ngClass]="{' is-invalid' : submitted && f['password'].errors}"/>
+
+
+                        <!--custom validation-->
+                        <div *ngIf="submitted && f['password'].errors">
+                            <div *ngIf="submitted && f['password'].errors['required']">
+                                Password is required and can't be empty
+                            </div>
+
+                            <div *ngIf="submitted && f['password'].errors['minlength']">
+                                Password must be 8 character long
+                            </div>
+
+                        </div>
+
+                       
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
