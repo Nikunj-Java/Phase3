@@ -1,8 +1,10 @@
+<div class="container">
 <h1>Component Interaction</h1>
 
 <h2>Parent Component</h2>
-<p>value coming from child is {{cdata}}</p>
+<p>value coming from child is :<b>{{cdata}}</b> </p>
 <input type="text" (keyup)="0" #ptext>
 <!--child componet-->
 <app-child [pdata]="ptext.value" (cevent)="cdata=$event"></app-child>
 
+</div>
