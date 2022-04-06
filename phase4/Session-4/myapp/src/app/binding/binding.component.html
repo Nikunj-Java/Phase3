@@ -6,3 +6,34 @@
 <h3>Let's Bind data from source to view using Property binding: [] : bind the value with attribute</h3>
 <hr>
 <a [href]="url" >Connect to Google</a>
+
+<h3>Print JSON Array</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Availability</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+             <!--class binding-->
+            <td [class.inStock]="true">{{p.name}}</td>
+            <!--style binding-->
+            <td [style.font-weight]="we">{{p.price}}</td>
+            <td>{{p.available}}</td>
+            <td>{{p.rating}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Event Handling</h3>
+<hr>
+<button class="btn btn-primary" (click)="show()">Show Div</button>
+
+<div *ngIf="flag">
+    This is my div
+</div>
+

@@ -145,7 +145,7 @@ prepare the binding component from node js by following command
 
 once it is done we can bind the data
 
-to bind the data go to binding.component.ts--- and add following at the bottom
+to bind the data go to binding.component.ts --- and add following at the bottom
 	name:string ="Nikunj Soni";
   	url:string ="https://www.google.com";
 
@@ -157,7 +157,7 @@ got to binding.component.html---add the following
 
 
 <h2>Data Binding</h2>
-<h3>Let's Bind data from source to view using interpolation</h3>
+<h3>Let's Bind data from source to view using interpolation {{}}</h3>
 <hr>
 <p>{{name}}</p>
 
@@ -182,4 +182,108 @@ and add the copied name like this
 save and check the output in browser
 
 
+********************************************************************
+Class and Style Binding
+********************************************************************
 
+prepare one array of products in bindings.component.ts
+
+
+products=[
+    {name:"pencil",price:"8.3",available:"04-04-2022",rating:4.8},
+    {name:"pen",price:"10",available:"05-04-2022",rating:4.0},
+    {name:"eraser",price:"5",available:"03-04-2022",rating:4.5},
+    {name:"scale",price:"20",available:"10-04-2022",rating:4.9}
+  ];
+
+
+got to the binding.component.html to print that array using table along with ngDirectives
+
+
+
+<h3>Print JSON Array</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Availability</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.available}}</td>
+            <td>{{p.rating}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+[*note: to implement bootstrap in your angular app include css and script files from bootstrat in index.html file of your app]
+
+
+step a: class binding
+
+      - prepare one class named as inStock in binding.component.css
+
+.inStock
+{
+background-color: green;
+color: white;
+font-size: 15px;
+}
+
+
+
+	go to the binding.component.html file and bind the class using
+
+<td [class.inStock]="true">{{p.name}}</td>
+
+
+
+step b: style binding
+
+prepare one number with any name say "we" in app.component.ts 
+
+we:number=700;
+
+
+now bind the style in binding.component.html
+
+go to the binding.component.html file and bind the style using
+
+<td [style.font-weight]="we">{{p.price}}</td>
+
+
+run your app  and you are ready to go
+
+********************************************************************
+
+EVENT BINDING
+
+********************************************************************
+
+prepare one button and div in html like below
+
+
+<hr>
+<button class="btn btn-primary" (click)="show()">Show Div</button>
+
+<div *ngIf="flag">
+    This is my div
+</div>
+
+
+now go to the binding.component.ts
+
+
+flag=false;
+  show(){
+    this.flag=!this.flag;
+  }
+
+
+********************************************************************
