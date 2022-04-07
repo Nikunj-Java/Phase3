@@ -1,0 +1,34 @@
+<h1>UpperLowerCase Demo</h1>
+
+<hr>
+
+
+<p>{{name | uppercase}}</p>
+<p>{{name | lowercase}}</p>
+
+
+<h1> Number Pipes</h1>
+<hr>
+<p> pi: {{pi | number:'5.5-5'}}</p>
+<p> pi: {{pi | number:'.3-3'}}</p>
+<p> pi: {{pi | number:'.10-10'}}</p>
+
+<h1> Currency Pipes</h1>
+<hr>
+
+<p>{{a | currency: 'USD':true:'3.3-3'}}</p>
+<p>{{a | currency: 'EURO':false}}</p>
+<p>{{a | currency: 'INR':true:'5.4-4'}}</p>
+
+<h1> Date pipes</h1>
+<hr>
+<p>Today is {{today}}</p>
+<p>Today is {{today | date}}</p>
+<p>Today is {{today | date:'dd/MM/yyyy'}}</p>
+
+<p>without json pipe {{object}}</p>
+<p>with json pipe {{object | json}}</p>
+
+
+<h1>Custom Pipe Demo</h1>
+<p>{{cust | changeString:' '}}</p>

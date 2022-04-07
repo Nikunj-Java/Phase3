@@ -5,13 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
-import { ServicedemoComponent } from './servicedemo/servicedemo.component';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
-    ServicedemoComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +18,7 @@ import { ServicedemoComponent } from './servicedemo/servicedemo.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
