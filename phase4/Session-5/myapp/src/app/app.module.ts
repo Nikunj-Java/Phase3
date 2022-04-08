@@ -9,6 +9,10 @@ import { HighlightDirective } from './HighlightDirective';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { HttpComponent } from './http/http.component';
+import { UserComponent } from './user/user.component';
+import { DataService } from './data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,14 +22,17 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     PipeDemoComponent,
     CustomPipe,
     HomeComponent,
-    AboutusComponent
+    AboutusComponent,
+    HttpComponent,
+    UserComponent
    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
