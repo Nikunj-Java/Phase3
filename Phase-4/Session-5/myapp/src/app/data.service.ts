@@ -12,6 +12,8 @@ export class DataService {
 
   url:string = "https://jsonplaceholder.typicode.com/users";
 
+  //url:string="./assests/question.json"
+
   //inject the dependency 
   constructor(private http: HttpClient) { }
 
