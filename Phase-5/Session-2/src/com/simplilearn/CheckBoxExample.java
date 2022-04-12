@@ -9,33 +9,29 @@ public class CheckBoxExample {
 
 	
 	public static void main(String[] args) {
-		String path= "D:\\Phase-5\\chromedriver\\chromedriver.exe";
-		System.setProperty("webdriver.chrome.driver",path);
+			
+		String driver_path="D:\\Phase-5\\chromedriver_win32\\chromedriver.exe";
+		System.setProperty("webdriver.chrome.driver", driver_path);
 		
-		///initiate the driver
-		WebDriver driver= new ChromeDriver();
-		///step:2 base url
-		String base_url= "https://www.shine.com/registration/";
-		///step:3 launching shine.com
-		driver.get(base_url);
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.shine.com/registration/");
 		
+		WebElement Check= driver.findElement(By.id("id_privacy"));
+		//check box is selected 
 		
-		WebElement check= driver.findElement(By.id("id_privacy"));
+		if(Check.isSelected()) {
+			
+			System.out.println("CheckBox is Selected by default");
+			System.out.println("status of check box: "+Check.isSelected());
+			
+		}
+		else {
+			System.out.println("CheckBox is not Selected");
+			
+		}
 		
-		WebElement name= driver.findElement(By.id("id_name"));
-		name.sendKeys("Nikunj Soni");
-		
-		WebElement email= driver.findElement(By.id("id_email"));
-		email.sendKeys("nikunj@gmail.com");
-		
-		WebElement pass= driver.findElement(By.id("id_password"));
-		pass.sendKeys("Nikunj@1234");
-		
-		WebElement mobile= driver.findElement(By.id("id_cell_phone"));
-		mobile.sendKeys("9876543210");
-		
-		WebElement button= driver.findElement(By.id("registerButton"));
-		button.click();
+		Check.click();
+		System.out.println("status of check box: "+Check.isSelected());
 		 
 		
 		 

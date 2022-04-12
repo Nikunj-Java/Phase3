@@ -25,6 +25,14 @@ public class AutoIt {
 		WebElement name =driver.findElement(By.id("id_name"));
 		name.sendKeys("nikunj soni");
 		
+		WebElement mobile= driver.findElement(By.id("id_cell_phone"));
+		mobile.sendKeys("9876543210");
+		
+		
+		WebElement password= driver.findElement(By.id("id_password"));
+		password.sendKeys("Nikunj@123");
+		
+		
 		WebElement element= driver.findElement(By.id("id_file"));
 		JavascriptExecutor executor =(JavascriptExecutor)driver;
 		executor.executeScript("arguments[0].click()", element);
