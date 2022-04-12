@@ -1,0 +1,66 @@
+
+download Auto it software from link:https://www.autoitscript.com/site/autoit/downloads/
+
+
+goto>C:\Program Files (x86)>AutoIt3>SciTE>double click on SciTE.exe file
+and copy and paste the below action script
+
+ControlFocus("Open","","Edit1")
+ControlSetText("Open","","Edit1","D:\Screenshot\cv.pdf")
+ControlClick("Open","","Button1")
+
+
+you can choose the action by auto it finder tool
+
+
+once it is done save it as Autoit(au3) save it with name "upload" to the same location as "D:\Screenshot"
+
+now go the folder wherever you have saved the autoit au3 file
+
+
+now rightclick on upload and compile script 
+after that upload.exe will be formed .
+
+
+copythat path and use it on java class
+
+
+
+package com.simplilearn;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AutoIt {
+
+	
+	public static void main(String[] args) throws IOException,InterruptedException {
+		System.setProperty("webdriver.chrome.driver","D:\\\\Phase-5\\\\chromedriver\\\\chromedriver.exe");
+		
+		
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://www.shine.com/registration/");
+		
+		
+		WebElement email= driver.findElement(By.id("id_name"));
+		email.sendKeys("nikunj@gmail.com");
+		
+		WebElement element= driver.findElement(By.id("id_file"));
+		JavascriptExecutor executor =(JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click()", element);
+		
+			Thread.sleep(5000);
+			Runtime.getRuntime().exec("D:\\Screenshot\\upload.exe");
+		 
+	}
+}
+
+
+
+run as java application
+
