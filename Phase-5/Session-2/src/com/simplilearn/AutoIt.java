@@ -19,8 +19,11 @@ public class AutoIt {
 		driver.get("https://www.shine.com/registration/");
 		
 		
-		WebElement email= driver.findElement(By.id("id_name"));
+		WebElement email= driver.findElement(By.id("id_email"));
 		email.sendKeys("nikunj@gmail.com");
+		
+		WebElement name =driver.findElement(By.id("id_name"));
+		name.sendKeys("nikunj soni");
 		
 		WebElement element= driver.findElement(By.id("id_file"));
 		JavascriptExecutor executor =(JavascriptExecutor)driver;
