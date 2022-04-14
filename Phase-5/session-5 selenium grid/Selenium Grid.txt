@@ -1,0 +1,23 @@
+*****************************************************
+Step:1 download selenium standalone jar file:
+***************************************************
+
+Link: https://selenium-release.storage.googleapis.com/index.html?path=3.5/
+
+*************************************************************
+Step:2 setting up a hub
+********************************************************
+
+copy selenium-standalone-server.jar file to desire folder
+
+now open cmd and change directory to that folder and execute below command
+
+java -jar selenium-server-standalone-3.5.3.jar -role hub
+
+
+
+now open another cmd and move to the same roort directory and prepare node as below
+
+
+java -Dwebdriver.chrome.driver="chromedriver.exe" -jar selenium-server-standalone-3.5.3.jar -role node -hub http://192.168.0.102:4444/grid/register/
+------------------------------------------------------------

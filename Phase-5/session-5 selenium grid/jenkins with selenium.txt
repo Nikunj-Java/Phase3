@@ -1,0 +1,77 @@
+Download jenkins.war file from: https://www.jenkins.io/download/
+
+move to the c:/programfiles
+
+---------------------------------------------------------------
+if java version is higherthan 11 then download jdk 8 or jdk 11 then paste yout jenkins.war file in C:\ProgramFiles folder
+
+then move to the programfile folder using cmd:
+
+cd ..
+cd ..
+cd ProgramFiles
+
+now write below code
+
+.\Java\jdk1.8.0_202\bin\java -jar jenkins.war
+-----------------------------------------------------------------
+1.copy the secret key and click continue
+2.click install suggested plugins
+3.add personal details and make registration
+
+
+once jenkins is downloaded go to manage plugins and install maven integration plugin
+
+
+
+once it is downloaded you can proceed
+
+
+
+---------------------------------------------------------------
+
+goto dash board> create new job> give projectname and choose maven project
+
+
+
+inside maven project give your java home path 
+
+name: JAVA_HOME
+path: C:\Program Files\Java\jdk1.8.0_202\
+
+
+scroll down and click on add maven
+
+
+
+goto> eclips > windows> preferences>maven>installation
+
+
+check the verison name say 3.8.1
+
+
+now inside the jenkins select that version and give name as maven
+
+
+click on apply and save
+
+now scroll down and inside build tab 
+
+
+copy the path of your pom.xml file
+as 
+
+D:\Workspace-phase5\Session-3-TestNG\pom.xml
+
+
+and in goals write 
+
+clean test
+
+
+click on apply and save
+
+
+click on build now
+
+
