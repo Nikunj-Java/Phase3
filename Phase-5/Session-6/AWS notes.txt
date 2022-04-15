@@ -1,0 +1,42 @@
+to launch Website in Ec2 Instance 
+
+download moba x-term 
+link: https://mobaxterm.mobatek.net/download.html
+
+go to the moba x term select:
+start terminal
+
+move to the folder where you have saved .pem key of amazon instance
+
+
+to change the folder 
+
+cd ..
+cd ..
+cd d:
+d: Phase-5
+
+go to the aws > ec2> click on instance> connect> click on ssh> copy the last Example Url and paste it in moba xterm
+
+
+
+you will see the message that a key is permanantly added
+
+
+if it will not work paste the key again and again until you success in adding the public private key
+
+
+write the following commanda in mobaxtrem for launching of your website
+
+> sudo su -
+> yum install httpd -y
+> cd /var/www/html
+> vi index.html
+press 'i'  to insert into html page
+
+> write <h1>Welcome to  AWS Cloud </h1>
+
+press 'esc'
+
+>:wq!
+>service httpd start
