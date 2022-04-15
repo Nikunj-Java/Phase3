@@ -12,12 +12,20 @@ copy selenium-standalone-server.jar file to desire folder
 
 now open cmd and change directory to that folder and execute below command
 
-java -jar selenium-server-standalone-3.5.3.jar -role hub
+java -jar selenium-server-standalone-3.5.0.jar -role hub
+
+if port is already in running you can change the port like
+
+java -jar selenium-server-standalone-3.5.0.jar -role hub -port 4445
 
 
 
 now open another cmd and move to the same roort directory and prepare node as below
 
 
-java -Dwebdriver.chrome.driver="chromedriver.exe" -jar selenium-server-standalone-3.5.3.jar -role node -hub http://192.168.0.102:4444/grid/register/
+java -Dwebdriver.chrome.driver="C:\Program Files\Google\Chrome\Application\chromedriver.exe" -jar selenium-server-standalone-3.5.0.jar -role node -hub http://192.168.0.109:4445/grid/register/
 ------------------------------------------------------------
+
+
+
+
