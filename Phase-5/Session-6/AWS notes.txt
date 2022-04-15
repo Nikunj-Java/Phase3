@@ -40,3 +40,6 @@ press 'esc'
 
 >:wq!
 >service httpd start
+
+
+copy Public IPv4 address: 80
