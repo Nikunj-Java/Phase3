@@ -27,5 +27,28 @@ java -Dwebdriver.chrome.driver="C:\Program Files\Google\Chrome\Application\chrom
 ------------------------------------------------------------
 
 
+download hubconfig and node config file from :
+
+https://www.seleniumeasy.com/selenium-tutorials/configure-selenium-grid-using-json-config-file
+
+
+copy the hub config file in notepad and save as myhubconfig.json file
+similarly prepare mynodeconfig.json file
+
+
+once you download close all running cmds
+and open again with same root directory
+
+
+lets start custom hub
+
+java -jar selenium-server-standalone-3.5.0.jar -role hub -hubConfig myhubconfig.json
+
+-----------------------------------------------------
+
+lets start with custom node
+
+java -Dwebdriver.chrome.driver="C:\Program Files\Google\Chrome\Application\chromedriver.exe" -jar selenium-server-standalone-3.5.0.jar -role node -nodeConfig mynodeconfig.json
+
 
 
