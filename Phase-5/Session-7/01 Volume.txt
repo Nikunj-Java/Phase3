@@ -1,3 +1,8 @@
+1.Prepare one EBS Volume 
+2. Attach EBS to the Running Instance
+3. go to instance > Connect>EC2Instance Connect> Connect
+
+
 List Available disk
 
 > lsblk
