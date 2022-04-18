@@ -1,0 +1,19 @@
+List Available disk
+
+> lsblk
+
+To check if the volume has any data or not
+
+> sudo file -s /dev/xvdf
+
+To formate drive to ext4 partition
+
+> sudo mkfs -t ext4 /dev/xvdf
+
+To change the name of directory
+
+> sudo mkdir /newvolume
+
+To mount the volume
+
+> sudo mount /dev/xvdf/newvolume/
