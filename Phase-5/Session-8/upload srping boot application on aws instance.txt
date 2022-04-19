@@ -39,6 +39,8 @@ install jdk 8 to aws
 
 >sudo yum install java-1.8.0
 
+>java -version
+
 to run spring boot appplication 
 
 >java -jar appname.jar
