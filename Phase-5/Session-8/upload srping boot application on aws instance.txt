@@ -1,0 +1,59 @@
+prepare spring boot application
+
+go to pom.xml file
+
+> remove jdk version and
+
+> add plugin 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+right click on project > maven> update project
+
+right click on project > run as maven clean
+
+right click on project > maven install
+
+once build is suceess
+
+refresh the project 
+
+go to traget folder and copy appname.SNAPSHOT.jar file and paste it in mobaxterm
+
+
+go to aws prepare aws instance 
+add http protocol while preparing aws instance
+prepare new key for your springboot project and download the key and connect your aws instance with moba xterm
+
+remove jdk 7 from aws instance
+
+>sudo yum remove java-1.7.0-openjdk
+
+install jdk 8 to aws
+
+>sudo yum install java-1.8.0
+
+to run spring boot appplication 
+
+>java -jar appname.jar
+
+
+
+now goto aws > select yout instance> goto security> security group> add inbound rule
+
+
+select custom TCP add port no: 8080 and choose anywhere
+
+save the rule
+
+
+refresh your aws instance
+
+
+copythe ipaddress:8080/testme
