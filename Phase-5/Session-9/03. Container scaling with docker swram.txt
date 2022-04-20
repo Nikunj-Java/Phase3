@@ -1,0 +1,21 @@
+***************************************************************
+Follow Notes 01 and 02
+***************************************************************
+
+STEP: 1 TO CREATE SERVICE ON DOCKER SWARM
+
+> docker service create -p 6000:80 --name demoservice firstimage  ///change the port if it is already in use
+
+
+check the service status: running or not??
+
+> docker service ls
+
+to scale the service
+
+> docker service scale demoservice=3
+
+check the service status: running or not??
+
+> docker service ls
+> docker service ps demoservice

@@ -1,0 +1,29 @@
+**************************************************************
+FOLLOW NOTES 01 : PUSH IMAGES TO DOCKER HUB
+	1. prepare amazon instance
+	2. connect using moba x-term
+	3. install ubuntu
+	4. install docker
+	5. clone git hub image to docker hub
+**************************************************************
+> cd docker_master
+> docker build -t firstimage .   ////(.is mendatory)///first image is name of your image
+
+
+*******to check the image is successfully build or not*****
+> docker images
+
+
+************initialising docker swarm cluster and deploying to the container to the cluster****************
+
+> docker swarm init
+> docker node ls
+
+
+**************once node is configured. deploy custom docker image on docker swarm cluster ***************
+
+Eg: docker service create -p 80:80 --name <anyname> <imagename>
+
+> docker service create -p 80:80 --name webserver firstimage
+> docker service ls
+> curl localhost:80
