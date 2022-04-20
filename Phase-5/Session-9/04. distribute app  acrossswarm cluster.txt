@@ -1,0 +1,67 @@
+step-1 prepare ubuntu aws instance and install docker master
+
+step-2 prepare ubuntu aws instance and install docker worker
+
+------------------------------------------------------------
+cofigure /etc/host file to define master and worker ip
+
+> sudo vi /etc/hosts
+
+press i:
+
+
+type below local host
+
+masterIP(Private Ip  From AWS) master
+WorkerIP(Private IP From AWS) worker
+
+press 'esc'
+
+:wq! +Enter
+
+
+execute below commaand ro ping ip
+
+>ping master
+>ping worker
+
+to stop ping press ctr+c
+
+
+
+
+let's initialise swarm cluster in master node
+
+> sudo docker swarm init --advertise-addr 172.31.29.105 (private ip)
+
+
+once you execute the above command one token is generated 
+
+
+copy that tocken to the clip board and paste it to worker node
+
+sudo docker swarm join --token SWMTKN-1-0krdmuy5otkqva0pxnu9pbcccwmsp8nxc5eny2nhlo1vds94oo-1dcv6koni7jji2efhs881hpn4 172.31.25.195:2377
+
+
+if error percist copy the below command
+
+sudo docker swarm leave --force
+
+once worker node joins the master node 
+
+
+check in master node:
+
+
+> sudo docker node ls
+
+
+you will see two names master node and worker node
+
+
+
+
+
+
+
+
