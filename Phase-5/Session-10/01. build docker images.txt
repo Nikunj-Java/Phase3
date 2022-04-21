@@ -22,3 +22,16 @@ SCRIPT PATH: Jenkinsfile
 
 click on apply and save
 
+
+
+click on build now
+
+
+if build success
+
+
+go to the moba x-term and follow the below code to check container image
+
+sudo docker container ls
+
+
