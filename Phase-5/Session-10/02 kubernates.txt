@@ -1,0 +1,199 @@
+***************************************************************************************************************
+STEP:1 - PREPARING AWS INSTANCE WITH UBUNTU OS 
+***************************************************************************************************************
+1.prepare ubuntu docker instance and add http and custom tcp protocol for prot 8080,download the .pem key and save it in some folder 
+
+2. goto>aws>instance>connect>ssh>copy the link
+
+3. open moba x-term > change your .pem file's directory using 
+cd d:
+cd phase-5
+
+4. pase the copied item to the mobax-term and hit enter
+
+
+---------------------------------------------------------------------------------------------------------------
+STEP:2 Docker Installation on Ubuntu OS
+---------------------------------------------------------------------------------------------------------------
+link: https://docs.docker.com/engine/install/ubuntu/
+
+> sudo apt-get update
+> sudo apt-get install ca-certificates curl gnupg lsb-release
+> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+>echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+> sudo apt-get update
+
+> sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+------------------to verify docker installation
+>sudo docker -v
+*************************************************************************************************************
+step: 3 INSTALLATION OF KUBERNETES
+*************************************************************************************************************
+----------go to the google -------------------
+
+link : https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+
+>sudo apt-get update
+>sudo apt-get install -y apt-transport-https ca-certificates curl
+
+>sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+>echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+>sudo apt-get update
+>sudo apt-get install -y kubelet kubeadm kubectl
+>sudo apt-mark hold kubelet kubeadm kubectl
+
+
+-----------------to check the version--------------------
+
+>kubeadm version
+
+
+----------------to check cube ctl version---------------
+> kubectl version
+
+
+***********************************************************************************************************
+STEP : 4 DISABLING SWAAP
+***********************************************************************************************************
+
+> sudo swapoff -a
+> sudo sed -i '/ swap / s/^/#/' /etc/fstab
+
+
+***********************************************************************************************************
+STEP: 5 ADDING C-GROUP
+***********************************************************************************************************
+
+> sudo vim /etc/docker/daemon.json
+
+press i
+
+enter the following :
+
+
+{
+"exec-opts" :["native.cgroupdriver=systemd"]
+}
+
+
+
+click esc
+
+:wq! +enter
+
+
+> sudo systemctl daemon-reload
+> sudo systemctl restart docker
+> sudo systemctl restart kubelet
+> sudo docker info |grep -i cgroup
+
+
+
+check the cgroup driver and version if it is coming you are all set to go ahead
+
+
+
+***************************************************************************************************************
+STEP: 6 RENAME THE AWS INSTANCE NAME INSTEAD OF IP
+**************************************************************************************************************
+
+
+> sudo hostnamectl set-hostname master-node
+
+
+
+***************************************************************************************************************
+STEP: 7 START KUBERNATES MASTER
+**************************************************************************************************************
+
+> sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=all
+
+----copy the token ------- and that can be utilised to join worker node 
+
+eg: sudo TOKEN
+
+
+> sudo kubeadm join 172.31.26.188:6443 --token bgutzq.pqfkhnfwym0ijppk --discovery-token-ca-cert-hash sha256:74ff00b47a6f862ce98ac6eed82e6349a2173f90eba0cf881b146e5f216c670c
+
+
+
+mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+***************************************************************************************************************
+
+
+
+STEP-8  Prapare New Amazon AWS Instance With Name Worker 
+
+and follows all the above step-1,step-2,step-3,step-4,step-5, step-6 give name as worker node
+
+
+
+
+***********************************************************
+STEP-8 APPLY POD NETWORK  TO THE CLUSTER
+************************************************************
+
+
+> kubectl get pods --all-namespaces
+> kubectl get nodes
+
+
+
+************************************************************
+STEP-9 : Prepare Matric server
+************************************************************
+
+**************kubernetes metrics*************************************
+
+
+# install metrics API 
+# check metrics API server
+
+
+******paste below code in master node**********************************
+kubectl top nodes
+
+> sudo kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+>kubectl get deployment metrics-server -n kube-system
+
+
+*****not working********************************************************
+
+*********once serivce is started****************************************
+kubectl get pods --all-namespaces
+
+kubectl get svc -n kube-system
+
+****to deploy your app**************************************************
+sudo docker images
+
+
+****to pull images*******************************************************
+sudo docker pull nikunj0510/nikunj
+
+
+****create a deployment pod
+kubectl run nikunj --image=nikunj0510\nikunj --port=8080
+
+
+*****verify pods***********************************************************
+kubectl get pods
+
+*****create a deplyment service*********************************************
+kubectl expose pod/nikunj --port=8081 --target-port=8081 --type=LoadBalancer
+
+***get services**************************************************************
+
+kubectl get services
+
+
+******************************
+Once the pod is deployed, we can get the Load Balancer URL from springbootapp EKS Service. EKS will automatically configure the Load Balancer in AWS. 
+*******************************
+kubectl describe svc nikunj
