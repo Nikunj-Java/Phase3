@@ -1,0 +1,24 @@
+go to jenkins
+> new item>pipeline project> give name> ok
+
+
+Description: any
+
+Advanced Project Options
+
+
+Defination:
+
+Pipeline script from SCM
+
+SCM:
+
+GIT:
+
+REPOSITORY URL: https://github.com/Nikunj-Java/docker_master.git
+
+
+SCRIPT PATH: Jenkinsfile
+
+click on apply and save
+

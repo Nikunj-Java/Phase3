@@ -1,7 +1,7 @@
 To set up jenkins
 we need 
-1.AWS -UBUNTU-INSTANCE
-2.UBUNTU OS
+1. AWS -UBUNTU-INSTANCE
+2. UBUNTU OS
 3. JDK
 4. MAVEN
 5. JENKINS
@@ -76,16 +76,42 @@ save it and refresh
 
 
 > sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-> sudo docker container rm -f <container id>
+
+> sudo chmod 777 /var/run/docker.sock
 
 
-> prepare jenkins account
-> goto to manage jenkins> manage plugins> download docker plugin
-
-select install without restart
+once the connection is done we are ready to go
 
 
->
+
+>>>>>>continue tomorrow>>>>>>>>>>
+
+
+Create> new job> select freestyle project and click ok
+
+Description:  any
+
+
+sourcecode and management:
+Git:
+Registry URL:
+https://github.com/Nikunj-Java/docker_master
+
+
+Branches to the Build:
+
+*/master
+
+
+Build Triggers:
+Poll SCM
+
+
+click on apply and save
+
+
+
+
 
 
 
