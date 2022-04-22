@@ -116,7 +116,12 @@ STEP: 7 START KUBERNATES MASTER
 eg: sudo TOKEN
 
 
-> sudo kubeadm join 172.31.26.188:6443 --token bgutzq.pqfkhnfwym0ijppk --discovery-token-ca-cert-hash sha256:74ff00b47a6f862ce98ac6eed82e6349a2173f90eba0cf881b146e5f216c670c
+>  kubeadm join 172.31.26.188:6443 --token k44z3k.b7ae0ezgkhm6gl7s \
+        --discovery-token-ca-cert-hash sha256:74ff00b47a6f862ce98ac6eed82e6349a2173f90eba0cf881b146e5f216c670c
+--ignore-preflight-errors=all
+
+
+
 
 
 
@@ -197,3 +202,5 @@ kubectl get services
 Once the pod is deployed, we can get the Load Balancer URL from springbootapp EKS Service. EKS will automatically configure the Load Balancer in AWS. 
 *******************************
 kubectl describe svc nikunj
+
+kubectl get pods -o wide
