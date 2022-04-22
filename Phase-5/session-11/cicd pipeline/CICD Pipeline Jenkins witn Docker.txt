@@ -1,3 +1,10 @@
+
+spring boot app:
+
+link: https://github.com/Nikunj-Java/SpringBootDockerApp.git
+
+
+
 To set up jenkins
 we need 
 1. AWS -UBUNTU-INSTANCE
